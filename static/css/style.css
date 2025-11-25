@@ -1,0 +1,604 @@
+/* Reset et polices */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    direction: rtl;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.nav-brand i {
+    font-size: 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #667eea;
+}
+
+.live-indicator {
+    color: #ff3366;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Contenu principal */
+.main-content {
+    padding: 2rem 0;
+}
+
+/* Lecteur vidéo */
+.video-player-section {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.video-player {
+    position: relative;
+    padding-top: 56.25%; /* Ratio 16:9 */
+    background: #000;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.video-placeholder i {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.video-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+/* Sélecteur de date */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.date-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-btn:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+}
+
+.current-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Filtres */
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Chargement */
+.loading {
+    text-align: center;
+    padding: 3rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.loading i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Container des matchs */
+.matches-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.match-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.match-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.match-competition {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.match-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.match-status.live {
+    background: #ff3366;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+}
+
+.match-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+.team {
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.team-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.match-score {
+    text-align: center;
+}
+
+.score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.match-time {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.match-footer {
+    padding: 1rem;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.match-footer-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Logos des équipes */
+.team-logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.team-logo-fallback {
+    display: block;
+}
+
+/* Logo de compétition */
+.competition-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}
+
+/* Chaînes de diffusion */
+.broadcast-channels {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.channel-logo {
+    height: 30px;
+    width: auto;
+    max-width: 80px;
+    object-fit: contain;
+    padding: 0.25rem 0.5rem;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.channel-logo:hover {
+    transform: scale(1.1);
+    border-color: #667eea;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.channel-name {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+    transition: all 0.2s;
+}
+
+.channel-name:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.watch-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.watch-btn:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+/* Section des chaînes */
+.channels-section {
+    margin-top: 3rem;
+}
+
+.channels-section h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.channel-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.channel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.vlc-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
+}
+
+.vlc-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.5);
+    background: linear-gradient(135deg, #ff9500 0%, #ff7700 100%);
+}
+
+.vlc-btn i {
+    font-size: 0.7rem;
+}
+
+.channel-icon {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.channel-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.channel-category {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Page des chaînes */
+.search-bar {
+    background: white;
+    border-radius: 25px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar i {
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+}
+
+.category-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-btn {
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.channels-grid-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .match-body {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .channels-grid,
+    .channels-grid-full {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .filters,
+    .category-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn,
+    .category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}

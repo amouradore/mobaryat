@@ -4,4 +4,6 @@ requests
 selenium==4.21.0
 selenium-wire==5.1.0
 blinker==1.6.2
+flask
+flask-cors
 
